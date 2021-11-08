@@ -18,8 +18,8 @@ class AddData extends ChangeNotifier {
     if (prevlist == null) {
       _tasks = [
         'Welcome to the todo list!',
-        'Hit the + button to add a new item',
-        'Long press to delete the item',
+        'Scroll right to edit item -->',
+        '<-- Scroll left to delete the item',
       ];
     } else {
       _tasks = prevlist!;
@@ -36,10 +36,13 @@ class AddData extends ChangeNotifier {
     notifyListeners();
   }
 
-  // UpdateTask(Task task) {
-  //   task.toggleDone();
-  //   notifyListeners();
-  // }
+  editNewTask(String editTask, String eT) async {
+    var index = _tasks.indexOf(eT);
+    _tasks.replaceRange(index, index + 1, [editTask]);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setStringList('todolist', _tasks);
+    notifyListeners();
+  }
 
   DeleteTask(int index) async {
     _tasks.removeAt(index);

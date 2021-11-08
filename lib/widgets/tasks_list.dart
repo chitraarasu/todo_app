@@ -13,9 +13,6 @@ class TasksList extends StatelessWidget {
             final task = taskData.tasks[index];
             return TaskTile(
               taskTitle: task,
-              checkBoxCallBack: (value) {
-                // taskData.UpdateTask(task);
-              },
               checkBoxDelete: () {
                 taskData.DeleteTask(index);
               },

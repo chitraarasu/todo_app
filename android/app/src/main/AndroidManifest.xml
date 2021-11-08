@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chitraarasu.todoey">
    <application
-        android:label="todoey"
+        android:label="Todo"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
